@@ -1,5 +1,6 @@
 repeat wait()
 until game:IsLoaded()
+local TableChat = {"siuuu"}
 spawn(function()
     while wait() do 
         pcall(function()
@@ -72,10 +73,10 @@ getgenv().Setting = {
 
                 ["C"] = {
                     ["Enable"] = true,
-                    ["HoldTime"] = 0.5,
+                    ["HoldTime"] = 2,
                 },
                 ["V"] = {
-                    ["false"] = false,
+                    ["Enable"] = false,
                     ["HoldTime"] = 0,
                 },
                 ["F"] = {
