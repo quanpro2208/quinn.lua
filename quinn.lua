@@ -32,9 +32,9 @@ getgenv().Setting = {
     ["Melee"] = {
         ["Enable"] = true,
         ["Delay"] = 2,
-        ["Z"] = {["Enable"] = true, ["Hold Time"] = 0},
+        ["Z"] = {["Enable"] = true, ["Hold Time"] = 1.5},
         ["X"] = {["Enable"] = true, ["Hold Time"] = 0},
-        ["C"] = {["Enable"] = true, ["Hold Time"] = 1.5}
+        ["C"] = {["Enable"] = true, ["Hold Time"] = 0}
     },
     ["Fruit"] = {
         ["Enable"] = false,
