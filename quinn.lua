@@ -1,61 +1,119 @@
+repeat wait()
+until game:IsLoaded()
+local TableChat = {""}
+spawn(function()
+    while wait() do 
+        pcall(function()
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(TableChat[math.random(1,#TableChat)],"All")
+            wait(45)
+        end)
+    end
+end)
 getgenv().Setting = {
-    ["Team"] = "Pirates",
+    ["Team"] = "Marines", --Marines,Pirates
     ["Webhook"] = {
-        ["Enable"] = false, 
-        ["Url"] = ""
-    },
-    ["Skip"] = {
-        ["Race V4"] = true,
-        ["Fruit"] = { 
-            "Leopard-Leopard",
-            "Venom-Venom",
-            "Dough-Dough",
-            "Portal-Portal"
-        }
-    },
-    ["Chat"] = {
-        ["Enabled"] = false,
-        ["Content"] = {""},
+        ["Enabled"] = true,
+        ["Url Webhook"] = "", --Your Url
     },
     ["Misc"] = {
-        ["Lock Bounty"] = {0, 30000000},
-        ["Hide If Low Health"] = true,
-        ["Hide Health"] = {4000,5000},
-        ["Lock Camera"] = true,
-        ["FPS Boost"] = false,
-        ["White Screen"] = false,
-        ["Bypass TP"] = true, 
-        ["Spam All Skill On V4"] = true, 
-        ["Random Fruit & Store"] = false,
-        ["Random Suprise"] = true
+        ["AutoBuyRandomandStoreFruit"] = false,
+        ["AutoBuySurprise"] = true,
     },
-    ["Melee"] = {
+    ["Click"] = {
         ["Enable"] = true,
-        ["Delay"] = 2,
-        ["Z"] = {["Enable"] = true, ["Hold Time"] = 1.5},
-        ["X"] = {["Enable"] = true, ["Hold Time"] = 0},
-        ["C"] = {["Enable"] = true, ["Hold Time"] = 0}
+        ["Click Gun"] = false,
+        ["OnLowHealthDisable"] = true,
+        ["LowHealth"] = 4500,
     },
-    ["Fruit"] = {
-        ["Enable"] = false,
-        ["Delay"] = 2,
-        ["Z"] = {["Enable"] = true, ["Hold Time"] = 0},
-        ["X"] = {["Enable"] = true, ["Hold Time"] = 0},
-        ["C"] = {["Enable"] = true, ["Hold Time"] = 0},
-        ["V"] = {["Enable"] = false, ["Hold Time"] = 1.25},
-        ["F"] = {["Enable"] = true, ["Hold Time"] = 0}
-    },
-    ["Sword"] = {
+    ["SafeZone"] = {
         ["Enable"] = true,
-        ["Delay"] = 1,
-        ["Z"] = {["Enable"] = true, ["Hold Time"] = 0},
-        ["X"] = {["Enable"] = true, ["Hold Time"] = 0}
+        ["LowHealth"] = 3000,
+        ["MaxHealth"] = 5000,
+        ["Teleport Y"] = math.random(1000,2000)
     },
-    ["Gun"] = {
+    ["Race V4"] = {
         ["Enable"] = true,
-        ["Delay"] = 1,
-        ["Z"] = {["Enable"] = true, ["Hold Time"] = 0},
-        ["X"] = {["Enable"] = true, ["Hold Time"] = 0}
+    },
+    ["Invisible"] = false,
+    ["White Screen"] = false,
+    ["GunMethod"] = false, --Support Only Melee And Gun,Not Invisible, Turn On Enabled Gun and Melee Please
+    ["SpamSkill"] = false, -- Will use all skills as fast as possbile ignore holding skills
+    ["Weapons"] = {
+        ["Melee"] = {
+            ["Enable"] = true,
+            ["Delay"] = 3,
+            ["Skills"] = {
+                ["Z"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0,
+                },
+               [ "X"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0.2,
+                },
+
+                ["C"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 1,
+                },
+            },
+        },
+        ["Blox Fruit"] = {
+            ["Enable"] = true,
+            ["Delay"] = 1,
+            ["Skills"] = {
+                ["Z"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0,
+                },
+                ["X"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0,
+                },
+
+                ["C"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0,
+                },
+                ["V"] = {
+                    ["Enable"] = false,
+                    ["HoldTime"] = 0,
+                },
+                ["F"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0,
+                },
+            },
+        },
+        ["Gun"] = {
+            ["Enable"] = false,
+            ["Delay"] = 2,
+            ["Skills"] = {
+                ["Z"] = {
+                    ["Enable"] = false,
+                    ["HoldTime"] = 0.7,
+                },
+                ["X"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0.7,
+                },
+            },
+        },
+        ["Sword"] = {
+            ["Enable"] = false,
+            ["Delay"] = 1,
+            ["Skills"] = {
+                ["Z"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0,
+                },
+                ["X"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0,
+                },
+            },
+        },
     }
 }
-loadstring(game:HttpGet("https://raw.githubusercontent.com/vuquocoai123/lua/main/AutoBountyV2Beta"))()
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+loadstring(game:HttpGet("https://raw.githubusercontent.com/obiiyeuem/vthangsitink/main/BountyShit.lua"))() 
