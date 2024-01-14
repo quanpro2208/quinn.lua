@@ -10,7 +10,7 @@ spawn(function()
     end
 end)
 getgenv().Setting = {
-    ["Team"] = "Marines", --Marines,Pirates
+    ["Team"] = "Pirates", --Marines,Pirates
     ["Webhook"] = {
         ["Enabled"] = true,
         ["Url Webhook"] = "", --Your Url
